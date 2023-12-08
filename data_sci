@@ -1,0 +1,454 @@
+202001103023
+Yuvraj M . Deshmukh BTech - 1
+Aim – Introduction to R tool for data analytics science. Code –
+Program 1 –
+42+18
+yuvraj = 3042 class(yuvraj) print(yuvraj) print("Hello") class(yuvraj) b=100L class(b)
+s="A loves to do programming" print(s)
+class(s)
+yuvraj=as.integer()
+Practical No – 01
+
+202001103023
+Yuvraj M . Deshmukh BTech - 1 class(yuvraj)
+x=c(42,38,52,44)
+print(sqrt(x))
+print(mean(x))
+print(median(x)) x1=c("yuvraj","Adi","Saim","Kamran") print(x1)
+y=c(42,NA,38,NA,52,NA,44) print(mean(y,na.rm=TRUE))
+Output –
+
+202001103023
+Yuvraj M . Deshmukh BTech - 1
+ 
+202001103023
+Yuvraj M . Deshmukh BTech - 1
+Program 2 –
+stud_data = data.frame(Name=c("Afaf","Arjan","Abdul"),PRN=c(38,42,44),Marks=c(100,89,89))
+stud_data a=20 b=40
+if (a>b){
+print("a is greater") }else
+print("b is greater") x=c(1,2,3,4,5) sum=0
+for (i in x){
+ 
+202001103023
+Yuvraj M . Deshmukh BTech - 1
+sum=sum+i }
+print(sum) print(sum(x)) Output –
+ Aim – Programs for Basic Statistics and Visualization in R Code –
+Program 1 –
+x=c(10,20,30,40,50,60)
+Practical No – 02
+
+202001103023
+Yuvraj M . Deshmukh
+BTech - 1 labels=c("Arjan","Abhishek","Abdul","Afaf","Saim","Pranav")
+color=c("red","green","blue","orange","purple","yellow")
+pie(x,labels,col = color,main="Marks Pie Chart")
+legend("topright", labels, cex = 0.8, bty = "n", fill = rainbow(length(labels))) hist(x,col="red",main="Sample Histogram")
+Output –
+  Program 2 –
+ #histogram
+import matplotlib.pyplot as plt
+import numpy as np
+import seaborn as sns samples=np.random.randint(1,100,50)
+ plt.hist(samples) plt.show()
+
+202001103023
+Yuvraj M . Deshmukh BTech - 1
+ #Pie chart
+slices=[70,40,50,69,35]
+lang=["JA V A","C++","PYTHON","C","R"] cols=["Red","Green","Blue","Orange","Yellow"] plt.pie(slices,labels=lang,colors=cols,autopct="%0.2f%%",explode=[0.5,0,0,0,0]) plt.show()
+ #histogram
+import matplotlib.pyplot as plt
+ import numpy as np
+x = (10,20,15,14,12,25,22,11,30,35) plt.hist(x,color="Blue")
+plt.show()
+ import matplotlib.pyplot as plt
+categories = ['Category 1', 'Category 2', 'Category 3', 'Category 4'] values = [25, 40, 30, 50]
+plt.bar(categories, values)
+plt.xlabel('Categories')
+plt.ylabel('Values')
+plt.title('Bar Plot Example')
+plt.show()
+ import seaborn as sns
+import matplotlib.pyplot as plt sns.get_dataset_names() tips=sns.load_dataset('tips') tips.head()
+x=[1,2,3,4,5]
+plt.boxplot(x)
+ import seaborn as sns
+import matplotlib.pyplot as plt
+ sns.get_dataset_names() titanic=sns.load_dataset('titanic')
+titanic.head() sns.scatterplot(x='sex',y='age',data=titanic,hue='alone')
+ import matplotlib.pyplot as plt
+ import seaborn as sns x=[1,2,3,4,5]
+
+202001103023
+Yuvraj M . Deshmukh BTech - 1
+ y=[10,20,30,40,50] sns.pointplot(x=x,y=y)
+ import sklearn
+from sklearn.datasets import load_diabetes import matplotlib.pyplot as plt
+import pandas as pd
+import numpy as np
+diabetes = load_diabetes()
+ column_name = diabetes.feature_names df_diabetes = pd.DataFrame(diabetes.data) df_diabetes .columns = column_name df_diabetes .head()
+print("Old Shape: ", df_diabetes.shape) Q1 = df_diabetes['bmi'].quantile(0.25) Q3 = df_diabetes['bmi'].quantile(0.75) IQR = Q3 - Q1
+lower = Q1 - 1.5*IQR
+upper = Q3 + 1.5*IQR
+upper_array = np.where(df_diabetes['bmi']>=upper)[0] lower_array = np.where(df_diabetes['bmi']<=lower)[0] df_diabetes.drop(index=upper_array, inplace=True) df_diabetes.drop(index=lower_array, inplace=True) print("New Shape: ", df_diabetes.shape) plt.figure(figsize=(10, 5))
+ plt.subplot(1, 2, 1)
+plt.boxplot(df_diabetes['bmi'], vert=False)
+plt.title('Before Removing Outliers')
+plt.xlabel('BMI')
+plt.subplot(1, 2, 2)
+plt.boxplot(diabetes.data[:, np.where(df_diabetes.columns == 'bmi')[0]], vert=False) plt.title('After Removing Outliers')
+plt.xlabel('BMI')
+plt.tight_layout()
+plt.show()
+Output –
+
+202001103023
+Yuvraj M . Deshmukh BTech - 1
+      Practical No – 03
+  
+202001103023
+Yuvraj M . Deshmukh BTech - 1
+Aim – Program for simple linear regression is an approach for predicting a response using a single multiple feature.
+Code – Program 1 –
+ import pandas as pd
+import matplotlib.pyplot as plt
+ import numpy as np
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression data=pd.read_csv("Salary_Data.csv")
+data.head()
+data.info()
+model = LinearRegression()
+x = data[['YearsExperience']]
+y = data['Salary']
+x_train,x_test,y_train,y_test = train_test_split(x,y,train_size=0.8,random_state=0) len(x_train)
+len(x_test)
+len(y_train)
+len(y_test)
+model.fit(x_train,y=y_train)
+y_pred = model.predict(x_test)
+ plt.scatter(x_test,y_test,color='red',s=100) plt.scatter(x_test,y_pred,color='blue',s=100) plt.plot(x_test,y_pred,color='blue',linestyle="dotted") from sklearn.metrics import r2_score score=r2_score(y_test,y_pred)
+score*100
+Output –
+ 
+202001103023
+Yuvraj M . Deshmukh BTech - 1
+   Program 2 –
+ import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
+from sklearn.model_selection import train_test_split from sklearn.linear_model import LinearRegression data=pd.read_csv("train.csv")
+data.head()
+ data.info()
+model = LinearRegression()
+x = data[['distance_traveled']]
+y = data['fare']
+x_train,x_test,y_train,y_test = train_test_split(x,y,train_size=0.8,random_state=0) len(x_train)
+len(x_test)
+len(y_train)
+len(y_test)
+model.fit(x_train,y=y_train)
+y_pred = model.predict(x_test)
+y_pred
+ plt.scatter(x_test,y_test,color='red',s=100) plt.scatter(x_test,y_pred,color='blue',s=100) plt.plot(x_test,y_pred,color='blue',linestyle="dotted") from sklearn.metrics import r2_score score=r2_score(y_test,y_pred)
+ score*100
+
+202001103023
+Yuvraj M . Deshmukh BTech - 1
+Output –
+ 
+202001103023
+Yuvraj M . Deshmukh BTech - 1
+Practical No – 04
+Aim – Program for predicting whether a user will purchase the product or not, using
+logistic Regression.
+Code –
+ import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+ import seaborn as sns data=pd.read_csv('Titanic-Dataset.csv') data.head(5) sns.countplot(x=data['Pclass'],hue=data['Survived']) data.info()
+mean_age = round((data['Age'].mean()),2) data['Age'] = data['Age'].fillna(mean_age) data.info()
+col = ['PassengerId','Name','Cabin','Ticket','Fare'] data = data.drop(col , axis = 1)
+data.head(5)
+data.isnull().sum()
+data = data.drop('Embarked' , axis = 1)
+from sklearn.preprocessing import LabelEncoder Encoder = LabelEncoder()
+data['Sex'] = Encoder.fit_transform(data['Sex'])
+ data.head()
+from sklearn.model_selection import train_test_split
+x_train , x_test , y_train , y_test = train_test_split(x , y , train_size = 0.8 , random_state = 0)
+len(x_train)
+len(x_test)
+x_test
+from sklearn.linear_model import LogisticRegression
+model = LogisticRegression()
+model.fit(x_train,y_train)
+y_pred = model.predict(x_test)
+y_pred
+ y_test
+from sklearn.metrics import accuracy_score accuracy = accuracy_score(y_test , y_pred) accuracy*100 model.predict([[1,0,31.0,1,0]])
+
+202001103023
+Yuvraj M . Deshmukh BTech - 1
+Output –
+       
+202001103023
+Yuvraj M . Deshmukh BTech - 1
+Practical No – 05
+Aim – Write a program to implement k-Nearest Neighbour algorithm to classify the
+iris data set. Print both correct and wrong predictions Program 1 – Titanic Dataset
+Code –
+ import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns data=pd.read_csv('Titanic-Dataset.csv') data.head(5) sns.countplot(x=data['Pclass'],hue=data['Survived']) data.info()
+mean_age = round((data['Age'].mean()),2) data['Age'] = data['Age'].fillna(mean_age) data.info()
+col = ['PassengerId','Name','Cabin','Ticket','Fare'] data = data.drop(col , axis = 1)
+data.head(5)
+data.isnull().sum()
+data = data.drop('Embarked' , axis = 1)
+ from sklearn.preprocessing import LabelEncoder Encoder = LabelEncoder()
+data['Sex'] = Encoder.fit_transform(data['Sex']) data.head()
+from sklearn.model_selection import train_test_split
+x_train , x_test , y_train , y_test = train_test_split(x , y , train_size = 0.8 , random_state = 0)
+len(x_train)
+len(x_test)
+x_test
+from sklearn.neighbors import KNeighborsClassifier
+model = KNeighborsClassifier(n_neighbors = 3)
+ model.fit(x_train , y_train)
+y_pred = model.predict(x_test)
+y_pred
+y_test
+from sklearn.metrics import accuracy_score accuracy = accuracy_score(y_test , y_pred)
+ accuracy*100
+
+202001103023
+Yuvraj M . Deshmukh BTech - 1
+Output –
+  Program 2 – Iris Dataset Code –
+ import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+data=pd.read_csv('Iris.csv')
+data.head(5)
+data.info()
+data.isnull().sum()
+x = data.iloc[:, :-1].values
+y = data.iloc[:, -1].values
+ from sklearn.model_selection import train_test_split
+x_train , x_test , y_train , y_test = train_test_split(x , y , train_size = 0.8 , random_state = 0)
+# len(x_train)
+len(x_test)
+from sklearn.neighbors import KNeighborsClassifier
+model = KNeighborsClassifier(n_neighbors = 3) model.fit(x_train , y_train)
+y_pred = model.predict(x_test)
+y_pred
+y_test
+from sklearn.metrics import accuracy_score
+ accuracy = accuracy_score(y_test , y_pred) accuracy*100
+model.predict()
+
+202001103023
+Yuvraj M . Deshmukh BTech - 1
+Output –
+   
+202001103023
+Yuvraj M . Deshmukh BTech - 1
+Practical No – 06
+Aim – For the given data perform ANOVA and tell the difference of variance between
+groups.
+Program –
+Code –
+# Load the ChickWeight dataset
+data(ChickWeight)
+# Subset the data to get the final weights
+final_weight_data <- ChickWeight[ChickWeight$Time == max(ChickWeight$Time), ] # Calculate the mean of final weights for each diet group
+mean_weight <- tapply(final_weight_data$weight, final_weight_data$Diet, mean)
+# Convert 'Diet' to a factor for ANOVA
+final_weight_data$Diet <- factor(final_weight_data$Diet)
+# Perform one-way ANOVA
+anova_result <- aov(weight ~ Diet, data = final_weight_data)
+# Post hoc test (Tukey's HSD)
+tukey_result <- TukeyHSD(anova_result)
+# Equality of variance (Levene's test)
+library(car)
+levene_test <- leveneTest(weight ~ Diet, data = final_weight_data)
+print(levene_test) # Create a boxplot
+boxplot(weight ~ Diet, data = final_weight_data, main = "Boxplot of Final Weight by Diet", xlab = "Diet", ylab = "Final Weight")
+# Check the p-value from ANOVA
+p_value <- summary(anova_result)[[1]][["Pr(>F)"]][1] # Define the significance level (alpha)
+alpha <- 0.05
+
+202001103023
+Yuvraj M . Deshmukh BTech - 1
+# Print the decision based on the p-value if (p_value < alpha) {
+cat("Reject the null hypothesis. There is a significant difference in means.\n") } else {
+cat("Accept the null hypothesis. There is no significant difference in means.\n") }
+Output –
+   
+202001103023
+Yuvraj M . Deshmukh BTech - 1
+Practical No – 07
+Aim – Implementation of Naive Bayesian Classifier. Code and Output –
+library(e1071)
+# Load the Iris dataset
+data(iris)
+library(caret)
+set.seed(123) # For reproducibility
+train_index <- createDataPartition(iris$Species, p = 0.7, list = FALSE)
+train_data <- iris[train_index, ]
+test_data <- iris[-train_index, ]
+# Train the Naive Bayes classifier
+nb_classifier <- naiveBayes(Species ~ ., data = train_data)
+# Predict on the test set
+test_predictions <- predict(nb_classifier, newdata = test_data)
+# Create a confusion matrix
+confusion_matrix <- table(Actual = test_data$Species, Predicted = test_predictions) confusion_matrix
+# Calculate accuracy
+accuracy <- sum(diag(confusion_matrix)) / sum(confusion_matrix)
+accuracy
+Output –
+ 
+202001103023
+Yuvraj M . Deshmukh BTech - 1
+Practical No – 08
+Aim – Program for market basket analysis using Association Rules. Program –
+# Load the libraries
+install.packages("arulesViz")
+library(arules) library(arulesViz) library(datasets)
+# Load the data set data(Groceries)
+# Create an item frequency plot for the top 20 items itemFrequencyPlot(Groceries,topN=20,type="absolute")
+# Get the rules
+rules <- apriori(Groceries, parameter = list(supp = 0.001, conf = 0.8))
+# Show the top 5 rules, but only 2 digits
+options(digits=2)
+inspect(rules[1:5])
+rules<-sort(rules, by="confidence", decreasing=TRUE)
+rules <- apriori(Groceries, parameter = list(supp = 0.001, conf = 0.8,maxlen=3)) subset.matrix <- is.subset(rules, rules)
+subset.matrix[lower.tri(subset.matrix, diag=T)] <- NA
+redundant <- colSums(subset.matrix, na.rm=T) >= 1
+rules.pruned <- rules[!redundant]
+rules<-rules.pruned
+rules<-apriori(data=Groceries, parameter=list(supp=0.001,conf = 0.08),
+appearance = list(default="lhs",rhs="whole milk"), control = list(verbose=F))
+
+202001103023
+Yuvraj M . Deshmukh
+BTech - 1
+rules<-sort(rules, decreasing=TRUE,by="confidence")
+inspect(rules[1:5])
+library(arulesViz) plot(rules,method="graph",interactive=TRUE) Output –
+   
+202001103023
+Yuvraj M . Deshmukh BTech - 1
+Practical No – 09
+Aim – Program to implement a Decision tree algorithm for any application. Code –
+# Load the required libraries
+library(rpart)
+library(rpart.plot)
+# Load the "mtcars" dataset (built-in dataset in R)
+data(mtcars)
+# Split the dataset into features (X) and target (y)
+X <- mtcars[, -1] # Features (excluding the first column, which is the car model) y <- mtcars$mpg # Target (miles per gallon)
+# Build the decision tree model
+model <- rpart(y ~ ., data = data.frame(X, y), method = "anova")
+# Visualize the decision tree
+rpart.plot(model, box.palette = "auto", type = 3, extra = 1)
+Output –
+ 
+202001103023
+Yuvraj M . Deshmukh BTech - 1
+Aim – Program to Simulate Principal component analysis. Code –
+Practical No – 10
+ import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.datasets import load_iris
+ from sklearn.decomposition import PCA
+from sklearn.preprocessing import StandardScaler
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from sklearn.naive_bayes import GaussianNB
+# Load the Iris dataset
+iris = load_iris()
+X = iris.data
+y = iris.target
+# Standardize the features (mean=0 and variance=1)
+X_standardized = StandardScaler().fit_transform(X)
+# Split the data into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(X_standardized, y, test_size=0.4, random_state=42)
+# Create a Naive Bayes classifier
+ clf = GaussianNB()
+# Train the classifier
+clf.fit(X_train, y_train)
+# Make predictions on the test data
+predictions = clf.predict(X_test)
+from sklearn.metrics import accuracy_score accuracy_score(y_test, predictions)
+pca = PCA(n_components=1)
+X_pca = pca.fit_transform(X_standardized)
+# Split the data into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(X_pca, y, test_size=0.4, random_state=42)
+ # Create a Naive Bayes classifier
+clf = GaussianNB()
+# Train the classifier
+clf.fit(X_train, y_train)
+# Make predictions on the test data
+predictions = clf.predict(X_test)
+ from sklearn.metrics import accuracy_score
+accuracy_score(y_test, predictions)
+
+202001103023
+Yuvraj M . Deshmukh BTech - 1
+ # Apply PCA and reduce the data to 2 principal components
+pca = PCA(n_components=)
+X_pca = pca.fit_transform(X_standardized)
+# Print the explained variance ratio print("Explained Variance Ratio (2 components):", pca.explained_variance_ratio_)
+# Plot the data points in the reduced feature space plt.figure(figsize=(8, 6))
+colors = ['blue', 'red', 'green']
+for i, target_name in enumerate(iris.target_names):
+     plt.scatter(X_pca[y == i, 0], X_pca[y == i, 1], color=colors[i],
+label=target_name)
+plt.xlabel('Principal Component 1')
+plt.ylabel('Principal Component 2')
+plt.title('PCA on Iris Dataset')
+plt.legend()
+plt.show()
+Output –
+  
+202001103023
+Yuvraj M . Deshmukh BTech - 1
+Aim – Program to Simulate Principal component analysis Code –
+# Load the USArrests dataset
+data("USArrests")
+# Perform SVD on the dataset svd_result <- svd(USArrests)
+# Extract U, Sigma, and V matrices U <- svd_result$u
+Sigma <- diag(svd_result$d)
+V <- svd_result$v
+# Print the matrices
+print("U (left singular vectors):") print(U)
+print("Sigma (singular values):") print(Sigma)
+print("V (right singular vectors):") print(V)
+Output –
+Practical No – 11
+  
+202001103023
+Yuvraj M . Deshmukh BTech - 1
+Practical No – 12
+Aim – Using built-in function perform Support Vector machine algorithm Code –
+library(e1071)
+data(iris)
+set.seed(123) # for reproducibility
+sample_indices <- sample(1:nrow(iris), nrow(iris) * 0.7) # 70% for training train_data <- iris[sample_indices, ]
+test_data <- iris[-sample_indices, ]
+svm_model <- svm(Species ~ ., data = train_data, kernel = "linear") predictions <- predict(svm_model, test_data)
+confusion_matrix <- table(predictions, test_data$Species) print(confusion_matrix)
+print(predictions)
+accuracy <- sum(diag(confusion_matrix)) / sum(confusion_matrix) cat("Accuracy:", accuracy, "\n")
+Output –
+ 
